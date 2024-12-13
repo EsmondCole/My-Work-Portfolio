@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link href="./CSS/details.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1 id="project-title">Project Title</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Overview</h2>
+            <p id="project-description">Loading project details...</p>
+        </section>
+        <section>
+            <h2>Features</h2>
+            <ul id="features-list"></ul>
+        </section>
+        <section>
+            <h2>Technologies Used</h2>
+            <ul id="technologies-list"></ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Esmond Cole</p>
+    </footer>
+
+    <script>
+        // Define the project details
+        const projects = [
+            {
+                title: "Online Food Ordering",
+                description: "Online Food Ordering refers to the process of placing food orders through a website. It allows users to browse menus, customize meals, and make payments digitally. Customers can choose between delivery to their location or pickup from the restaurant. This system provides convenience, real-time tracking, and a wide variety of dining options, enhancing the overall food ordering experience.",
+                features: [
+                    "Browse and select meals from a menu",
+                    "Customize orders and choose delivery/pickup options",
+                    "Real-time tracking of orders"
+                ],
+                technologies: [
+                    "HTML, CSS, JavaScript",
+                    "Backend Framework (e.g., Node.js, Flask)",
+                    "Database Management (e.g., MySQL, MongoDB)"
+                ]
+            },
+            {
+                title: "Real-Time Data Dashboard",
+                description: "This project offers tools to help businesses make better decisions by providing real-time data, interactive charts, and a customizable dashboard. The real-time data display ensures up-to-date information is always available, while interactive charts allow users to explore data more deeply. The customizable dashboard lets users tailor the layout and visuals to focus on the most important information for their needs. Together, these features enable more effective decision-making in business environments.",
+                features: [
+                    "Real-time data display",
+                    "Interactive charts and graphs",
+                    "Customizable dashboard for user preferences"
+                ],
+                technologies: [
+                    "HTML, CSS, JavaScript",
+                    "Chart.js for visualization",
+                    "Node.js for backend"
+                ]
+            },
+            {
+                title: "Network Designed for Organization",
+                description: "This project focuses on designing a network for an organization with multiple departments using the Packet Tracer tool. The design incorporates routers and switches to establish a reliable network infrastructure. Subnetting is used to organize the network into smaller, manageable segments, ensuring that communication between departments is secure and efficient. The goal is to create a well-structured network that optimizes performance while maintaining data security and smooth communication.",
+                features: [
+                    "Multiple department-based network segmentation",
+                    "Router and switch configuration",
+                    "Subnetting for efficient IP address management",
+                    "Network security features"
+                ],
+                technologies: [
+                    "Cisco Packet Tracer",
+                    "Networking protocols (TCP/IP, Subnetting)",
+                    "Routers, Switches"
+                ]
+            }
+        ];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectName = urlParams.get('project');
+        const project = projects.find(p => p.title === projectName);
+
+        if (project) {
+            document.getElementById('project-title').textContent = project.title;
+            document.getElementById('project-description').textContent = project.description;
+
+            const featuresList = document.getElementById('features-list');
+            project.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                featuresList.appendChild(li);
+            });
+
+            const techList = document.getElementById('technologies-list');
+            project.technologies.forEach(tech => {
+                const li = document.createElement('li');
+                li.textContent = tech;
+                techList.appendChild(li);
+            });
+        } else {
+            document.body.innerHTML = '<p>Project not found.</p>';
+        }
+    </script>
+</body>
+
+</html>
