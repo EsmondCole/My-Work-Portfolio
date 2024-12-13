@@ -1,0 +1,157 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #222;
+    background: linear-gradient(135deg, #f0f8ff, #e6e6fa);
+    overflow-x: hidden;
+}
+
+header {
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: #fff;
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 1s ease;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+    position: relative;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    left: 50%;
+    background-color: #fff;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem 2rem;
+}
+
+.interest {
+    background: #fff;
+    padding: 2rem;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    animation: fadeInUp 1.5s ease;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.interest img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.interest img:hover {
+    transform: scale(1.05);
+}
+
+.interest h2 {
+    color: #6a11cb;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    animation: textSlideIn 1.2s ease;
+}
+
+.interest p {
+    font-size: 1rem;
+    color: #555;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: linear-gradient(90deg, #2575fc, #6a11cb);
+    color: #fff;
+    margin-top: 2rem;
+    animation: fadeInUp 1s ease;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes textSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

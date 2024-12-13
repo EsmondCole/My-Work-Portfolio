@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Interests</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="./CSS/technicalInterests.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Technical Interests</h1>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="technical-interests.html">Technical Interests</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div class="interest">
+            <h2>Web Development</h2>
+            <img src="images/technical1.png" alt="Web Development">
+            <p>I am passionate about creating functional and visually appealing websites.</p>
+        </div>
+        <div class="interest">
+            <h2>Cyber Security</h2>
+            <img src="images/technical2.png" alt="Cyber Security">
+            <p>Cybersecurity intrigues me as it involves protecting data and systems from cyber threats.</p>
+        </div>
+        <div class="interest">
+            <h2>Data Analysis</h2>
+            <img src="images/technical3.png" alt="Data Analysis">
+            <p>Analyzing data to derive meaningful insights is an area of interest and focus for me.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Esmond Cole</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const interests = document.querySelectorAll(".interest");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = "translateY(0)";
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+            }
+        );
+
+        interests.forEach((interest) => {
+            observer.observe(interest);
+        });
+    });
+</script>
+
+</html>
